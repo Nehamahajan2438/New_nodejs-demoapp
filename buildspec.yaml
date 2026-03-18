@@ -1,0 +1,29 @@
+version: 0.2
+
+phases:
+  install:
+    runtime-versions:
+      nodejs: 18
+    commands:
+      - echo Installing dependencies...
+      - npm install
+
+  pre_build:
+    commands:
+      - echo Logging in to Amazon ECR...
+      - aws --version
+
+  build:
+    commands:
+      - echo Build started on `date`
+      - docker build -t my-node-app .
+      - docker tag my-node-app:latest <your-account-id>.dkr.ecr.<region>.amazonaws.com/my-node-app:latest
+
+  post_build:
+    commands:
+      - echo Build completed on `date`
+      - docker push <253191735443>.dkr.ecr.<region>.amazonaws.com/my-node-app:latest
+
+artifacts:
+  files:
+    - '**/*'
