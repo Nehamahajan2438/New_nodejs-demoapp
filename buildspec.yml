@@ -10,8 +10,6 @@ phases:
     runtime-versions:
       nodejs: 18
     commands:
-      - echo "Navigating to project folder"
-      - cd New_nodejs-demoapp
       - echo "Installing Node.js dependencies"
       - npm install
 
