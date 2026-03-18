@@ -22,7 +22,7 @@ phases:
   post_build:
     commands:
       - echo Build completed on `date`
-      - docker push <253191735443>.dkr.ecr.<region>.amazonaws.com/my-node-app:latest
+      - docker push <253191735443>.dkr.ecr.ap-south-1.amazonaws.com/my-node-app:latest
 
 artifacts:
   files:
